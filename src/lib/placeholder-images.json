@@ -1,3 +1,22 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "avatar-1",
+      "description": "Avatar de trabajador masculino",
+      "imageUrl": "https://picsum.photos/seed/user1/200/200",
+      "imageHint": "worker profile"
+    },
+    {
+      "id": "avatar-2",
+      "description": "Avatar de trabajador femenino",
+      "imageUrl": "https://picsum.photos/seed/user2/200/200",
+      "imageHint": "employee photo"
+    },
+    {
+      "id": "warehouse-hero",
+      "description": "Imagen de fondo de almacén",
+      "imageUrl": "https://picsum.photos/seed/warehouse/1200/400",
+      "imageHint": "warehouse logistics"
+    }
+  ]
 }
