@@ -4,11 +4,11 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { 
-  LayoutGrid, 
-  UserRound, 
-  Box, 
+  LayoutDashboard, 
+  Users, 
+  Package, 
   ArrowLeftRight, 
-  ClipboardList,
+  History,
   PieChart,
   Warehouse
 } from "lucide-react"
@@ -30,12 +30,12 @@ const items = [
   {
     title: "Panel de Control",
     url: "/dashboard",
-    icon: LayoutGrid,
+    icon: LayoutDashboard,
   },
   {
     title: "Trabajadores",
     url: "/trabajadores",
-    icon: UserRound,
+    icon: Users,
   },
   {
     title: "Análisis Personal",
@@ -45,7 +45,7 @@ const items = [
   {
     title: "Inventario",
     url: "/inventario",
-    icon: Box,
+    icon: Package,
   },
   {
     title: "Movimientos",
@@ -55,7 +55,7 @@ const items = [
   {
     title: "Historial",
     url: "/historial",
-    icon: ClipboardList,
+    icon: History,
   },
 ]
 
@@ -63,34 +63,36 @@ export function AppSidebar() {
   const pathname = usePathname()
 
   return (
-    <Sidebar variant="sidebar" collapsible="icon">
-      <SidebarHeader className="border-b px-4 py-6">
+    <Sidebar variant="sidebar" collapsible="icon" className="border-r border-primary/5">
+      <SidebarHeader className="px-4 py-8">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:scale-105">
             <Warehouse strokeWidth={1.5} className="h-6 w-6" />
           </div>
           <div className="flex flex-col group-data-[collapsible=icon]:hidden">
-            <span className="text-lg font-bold tracking-tight text-primary">Gestor Stock</span>
-            <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Enterprise v1.0</span>
+            <span className="text-lg font-black tracking-tight text-primary">Gestor Stock</span>
+            <span className="text-[10px] text-muted-foreground uppercase font-black tracking-[0.2em]">Enterprise</span>
           </div>
         </div>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="group-data-[collapsible=icon]:hidden font-bold text-[10px] uppercase tracking-wider px-4 mb-2">Menú Principal</SidebarGroupLabel>
+          <SidebarGroupLabel className="group-data-[collapsible=icon]:hidden font-black text-[10px] uppercase tracking-widest px-4 mb-4 text-primary/40">Menú Principal</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu className="gap-1 px-2">
+            <SidebarMenu className="gap-2 px-2">
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton 
                     asChild 
                     isActive={pathname === item.url}
                     tooltip={item.title}
-                    className="h-10 rounded-lg transition-all duration-200 hover:bg-primary/5 data-[active=true]:bg-primary/10 data-[active=true]:text-primary"
+                    className="h-11 rounded-xl transition-all duration-300 hover:bg-primary/5 data-[active=true]:bg-primary/10 data-[active=true]:text-primary group/item"
                   >
-                    <Link href={item.url}>
-                      <item.icon strokeWidth={1.5} className="h-5 w-5" />
-                      <span className="font-semibold">{item.title}</span>
+                    <Link href={item.url} className="flex items-center gap-3">
+                      <div className={`p-1.5 rounded-lg transition-colors ${pathname === item.url ? 'bg-primary/10' : 'group-hover/item:bg-primary/5'}`}>
+                        <item.icon strokeWidth={1.5} className="h-5 w-5" />
+                      </div>
+                      <span className="font-bold text-sm">{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -99,8 +101,8 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="border-t p-4 text-[10px] text-muted-foreground font-medium group-data-[collapsible=icon]:hidden">
-        <p>© 2024 Gestor de Stock</p>
+      <SidebarFooter className="border-t border-primary/5 p-6 text-[9px] text-muted-foreground font-black uppercase tracking-widest group-data-[collapsible=icon]:hidden">
+        <p>© 2024 Gestor Stock</p>
       </SidebarFooter>
     </Sidebar>
   )
