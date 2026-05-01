@@ -7,9 +7,6 @@ import {
   LayoutDashboard, 
   Users, 
   Package, 
-  ArrowLeftRight, 
-  History,
-  PieChart,
   Warehouse
 } from "lucide-react"
 
@@ -38,24 +35,9 @@ const items = [
     icon: Users,
   },
   {
-    title: "Análisis Personal",
-    url: "/analisis-personal",
-    icon: PieChart,
-  },
-  {
     title: "Inventario",
     url: "/inventario",
     icon: Package,
-  },
-  {
-    title: "Movimientos",
-    url: "/movimientos",
-    icon: ArrowLeftRight,
-  },
-  {
-    title: "Historial",
-    url: "/historial",
-    icon: History,
   },
 ]
 
