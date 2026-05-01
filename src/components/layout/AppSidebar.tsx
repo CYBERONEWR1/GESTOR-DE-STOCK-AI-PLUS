@@ -9,7 +9,8 @@ import {
   Package, 
   ArrowLeftRight, 
   History,
-  ClipboardList
+  ClipboardList,
+  BarChart3
 } from "lucide-react"
 
 import {
@@ -35,6 +36,11 @@ const items = [
     title: "Trabajadores",
     url: "/trabajadores",
     icon: Users,
+  },
+  {
+    title: "Análisis Personal",
+    url: "/analisis-personal",
+    icon: BarChart3,
   },
   {
     title: "Inventario",
